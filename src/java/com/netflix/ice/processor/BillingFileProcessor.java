@@ -102,14 +102,17 @@ public class BillingFileProcessor extends Poller {
                 }
 
                 if (dataTime != null && !dataTime.isBefore(config.startDate)) {
+                    logger.info('datetime is valid!');
                     if (!filesToProcessInOneBucket.containsKey(dataTime) ||
                         withTags && config.resourceService != null || !withTags && config.resourceService == null)
+                        logger.info("preparing file to process");
                         filesToProcessInOneBucket.put(dataTime, objectSummary);
-                    else
-                        logger.info("ignoring file " + objectSummary.getKey());
+                    else {
+                        logger.info("did not put file. ignoring file " + objectSummary.getKey());
+                    }
                 }
                 else {
-                    logger.info("ignoring file " + objectSummary.getKey());
+                    logger.info("datetime is null or before configured startDate. ignoring file " + objectSummary.getKey());
                 }
             }
 
