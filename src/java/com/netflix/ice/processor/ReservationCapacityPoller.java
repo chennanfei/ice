@@ -140,7 +140,7 @@ public class ReservationCapacityPoller extends Poller {
 
                 for (Region region: Region.getAllRegions()) {
 
-                    ec2Client.setEndpoint("ec2." + region.name + ".amazonaws.com");
+                    ec2Client.setEndpoint("ec2.cn-north-1.amazonaws.com.cn");
 
                     try {
                         DescribeReservedInstancesResult result = ec2Client.describeReservedInstances();
