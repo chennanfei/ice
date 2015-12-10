@@ -145,7 +145,7 @@ public class BasicReservationService extends Poller implements ReservationServic
         AmazonEC2Client ec2Client = new AmazonEC2Client(AwsUtils.awsCredentialsProvider, AwsUtils.clientConfig);
 
         for (Region region: Region.getAllRegions()) {
-            ec2Client.setEndpoint("ec2." + region.name + ".amazonaws.com");
+            ec2Client.setEndpoint("ec2.cn-north-1.amazonaws.com.cn");
             do {
                 if (!StringUtils.isEmpty(token))
                     req.setNextToken(token);
