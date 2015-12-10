@@ -95,14 +95,7 @@ public class AwsUtils {
         }
         s3Client = new AmazonS3Client(awsCredentialsProvider, clientConfig);
         securityClient = new AWSSecurityTokenServiceClient(awsCredentialsProvider, clientConfig);
-        if (System.getProperty("EC2_REGION") != null && !"us-east-1".equals(System.getProperty("EC2_REGION"))) {
-            if ("global".equals(System.getProperty("EC2_REGION"))) {
-                s3Client.setEndpoint("s3.amazonaws.com");
-            }
-            else {
-                s3Client.setEndpoint("s3-" + System.getProperty("EC2_REGION") + ".amazonaws.com");
-            }
-        }
+        s3Client.setEndpoint("s3.cn-north-1.amazonaws.com.cn");
     }
 
     public static AmazonS3Client getAmazonS3Client() {
