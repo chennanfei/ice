@@ -111,14 +111,7 @@ public class AwsUtils {
     public static AmazonSimpleDBClient getAmazonSimpleDBClient() {
         if (simpleDBClient == null) {
             simpleDBClient = new AmazonSimpleDBClient(awsCredentialsProvider, clientConfig);
-            if (System.getProperty("EC2_REGION") != null && !"us-east-1".equals(System.getProperty("EC2_REGION"))) {
-                if ("global".equals(System.getProperty("EC2_REGION"))) {
-                    simpleDBClient.setEndpoint("sdb.amazonaws.com");
-                }
-                else {
-                    simpleDBClient.setEndpoint("sdb." + System.getProperty("EC2_REGION") + ".amazonaws.com");
-                }
-            }
+            simpleDBClient.setEndpoint("sdb.cn-north-1.amazonaws.com.cn");
         }
         return simpleDBClient;
     }
