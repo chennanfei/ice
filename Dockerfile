@@ -25,9 +25,9 @@ EXPOSE 8080
 CMD ["/opt/ice/grailsw"]
 
 # Ice setup
+RUN mkdir /mnt/ice_processor && mkdir /mnt/ice_reader
 COPY . ${INSTALL_DIR}
 
-RUN mkdir /mnt/ice_processor && mkdir /mnt/ice_reader && \
-  grails ${JAVA_OPTS} wrapper && \
+RUN grails ${JAVA_OPTS} wrapper && \
   rm grails-app/i18n/messages.properties && \ 
   sed -i -e '1i#!/bin/bash\' grailsw
