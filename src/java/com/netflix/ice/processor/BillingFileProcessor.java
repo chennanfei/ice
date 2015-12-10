@@ -107,9 +107,8 @@ public class BillingFileProcessor extends Poller {
                         withTags && config.resourceService != null || !withTags && config.resourceService == null)
                         logger.info("preparing file to process");
                         filesToProcessInOneBucket.put(dataTime, objectSummary);
-                    else {
+                    else
                         logger.info("did not put file. ignoring file " + objectSummary.getKey());
-                    }
                 }
                 else {
                     logger.info("datetime is null or before configured startDate. ignoring file " + objectSummary.getKey());
