@@ -22,7 +22,7 @@ RUN \
 WORKDIR ${INSTALL_DIR}
 
 EXPOSE 8080
-ENTRYPOINT ["/opt/ice/grailsw"]
+CMD ["/opt/ice/grailsw"]
 
 # Ice setup
 RUN mkdir /mnt/ice_processor && mkdir /mnt/ice_reader
