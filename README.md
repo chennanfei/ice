@@ -22,7 +22,7 @@ When representing the cost profile for individual resources, Ice will factor the
 3. 在“账单和成本管理 > 首选项”页面，选中“接收账单报告”，并将“billing-reports”填入输入框进行验证，在报告一栏选中选中前三项，最后保存首选项。详情可参考[Understanding Your Usage with Detailed Billing Reports](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/detailed-billing-reports.html)
 
 ## 在Docker里运行ICE
-在本地创建一个名为ice.properties的文件，填写如下属性值。完整问配置参考[smaple.properties](https://github.com/Netflix/ice/blob/master/src/java/sample.properties)
+在将[smaple.properties](https://github.com/chennanfei/ice/blob/master/src/java/sample.properties)拷贝到本地命名为ice.properties，填写如下属性值
 
     # 组织名称，会显示在ICE的面板上
     ice.companyName=
@@ -41,12 +41,12 @@ When representing the cost profile for individual resources, Ice will factor the
 
     # 货币符号和汇率。美元对目标货币的汇率，比如美元对人民币汇率是6.4
     ice.currencySign=CNY
-	ice.currency=6.4
+    ice.currency=6.4
 
 执行下面的命令运行ICE：
 
     docker run -d --name billing-ice -p 8080:8080 \
-        -v ice.properties:/opt/ice/src/java/ice.properties \
+        -v {dir}/ice.properties:/opt/ice/src/java/ice.properties \
         -e S3_ACCESS_KEY_ID= \
         -e S3_SECREAT_KEY_ID= \
         index.alauda.cn/alauda/ice:trusty
