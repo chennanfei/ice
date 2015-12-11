@@ -18,7 +18,7 @@ When representing the cost profile for individual resources, Ice will factor the
 
 ## 准备工作
 1. 访问AWS console，在"安全 & 身份 > IAM > 用户 > {用户名}"下创建访问密钥
-2. S3管理页面，创建两个桶，比如billing-reports和billing-ice2。给两个桶添加权限
+2. S3管理页面，创建两个桶，比如billing-reports和billing-ice。给两个桶添加权限
 3. 在“账单和成本管理 > 首选项”页面，选中“接收账单报告”，并将“billing-reports”填入输入框进行验证，在报告一栏选中选中前三项，最后保存首选项。详情可参考[Understanding Your Usage with Detailed Billing Reports](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/detailed-billing-reports.html)
 
 ## 在Docker里运行ICE
@@ -30,20 +30,17 @@ When representing the cost profile for individual resources, Ice will factor the
     # 存放账单报告的S3桶
     ice.billing_s3bucketname=
     
-    # 组织名称，会在ICE dashboard的页面上
-    ice.companyName=
-    
     # 账单文件的前缀，比如"{acount id}-aws"，如果有多个用逗号隔开
     ice.billing_s3bucketprefix=,
     
     # 账单支付账户ID，有多个的话用逗号隔开
-	ice.billing_payerAccountId=,
-	
-	# ICE处理账单会生成一些文件，这些文件存在指定桶里
-	ice.work_s3bucketname=
+    ice.billing_payerAccountId=,
 
-	# 货币符号和汇率。美元对目标货币的汇率，比如美元对人民币汇率是6.4
-	ice.currencySign=CNY
+    # ICE处理账单会生成一些文件，这些文件存在指定桶里
+    ice.work_s3bucketname=
+
+    # 货币符号和汇率。美元对目标货币的汇率，比如美元对人民币汇率是6.4
+    ice.currencySign=CNY
 	ice.currency=6.4
 
 执行下面的命令运行ICE：
