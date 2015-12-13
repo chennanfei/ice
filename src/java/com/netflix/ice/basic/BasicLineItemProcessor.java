@@ -358,6 +358,7 @@ public class BasicLineItemProcessor implements LineItemProcessor {
         InstanceOs os = null;
 
         // first try to retrieve region info
+        logger.info("usageTypeStr: " + usageTypeStr);
         int index = usageTypeStr.indexOf("-");
         String regionShortName = index > 0 ? usageTypeStr.substring(0, index) : "";
         Region region = regionShortName.isEmpty() ? null : Region.getRegionByShortName(regionShortName);
@@ -365,7 +366,7 @@ public class BasicLineItemProcessor implements LineItemProcessor {
             usageTypeStr = usageTypeStr.substring(index+1);
         }
         else {
-            region = Region.US_EAST_1;
+            region = Region.CN_NORTH_1;
         }
 
         if (operationStr.equals("EBS Snapshot Copy")) {
