@@ -49,7 +49,7 @@ When representing the cost profile for individual resources, Ice will factor the
         -v {dir}/ice.properties:/opt/ice/src/java/ice.properties \
         -e S3_ACCESS_KEY_ID= \
         -e S3_SECREAT_KEY_ID= \
-        index.alauda.cn/alauda/ice:trusty
+        index.alauda.cn/chennanfei/ice:latest
 
 **S3_ACCESS_KEY_ID**：AWS IAM user的访问密钥ID
 
